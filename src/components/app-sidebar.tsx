@@ -29,13 +29,34 @@ const userOptions = [
 
 const quotationOptions = [
   {
+    title: "Recibir",
+    url: "/proposals/list",
+    icon: Inbox,
+  },
+  {
     title: "Cotizar",
-    url: "/dashboard/user-registration",
+    url: "/proposals/registration",
     icon: Search,
   },
   {
     title: "Enviar",
-    url: "/dashboard/user-list",
+    url: "/proposals/list",
+    icon: ArrowRight,
+  },
+];
+
+const reportesOptions = [
+  {
+    title: "Reportes",
+    url: "/dashboard/reportes",
+    icon: ArrowRight,
+  },
+];
+
+const productosOptions = [
+  {
+    title: "Productos",
+    url: "/dashboard/reportes",
     icon: ArrowRight,
   },
 ];
@@ -67,6 +88,40 @@ export function AppSidebar() {
           <SidebarGroupContent>
             <SidebarMenu>
               {quotationOptions.map((item) => (
+                <SidebarMenuItem key={item.title}>
+                  <SidebarMenuButton asChild>
+                    <a href={item.url}>
+                      <item.icon />
+                      <span>{item.title}</span>
+                    </a>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+        <SidebarGroup>
+          <SidebarGroupLabel>Reportes y análisis</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {reportesOptions.map((item) => (
+                <SidebarMenuItem key={item.title}>
+                  <SidebarMenuButton asChild>
+                    <a href={item.url}>
+                      <item.icon />
+                      <span>{item.title}</span>
+                    </a>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+        <SidebarGroup>
+          <SidebarGroupLabel>Productos</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {productosOptions.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
                     <a href={item.url}>
