@@ -29,7 +29,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
-interface IFormInput {
+export interface IFormInput {
   nombres: string;
   apellidoPaterno: string;
   apellidoMaterno: string;

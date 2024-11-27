@@ -8,8 +8,22 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
+export interface User {
+  id: string;
+  nombres: string;
+  apellidoPaterno: string;
+  apellidoMaterno: string;
+  fechaNacimiento: Date;
+  correo: string;
+  telefonoMovil: string;
+  sexo: "masculino" | "femenino" | "otro";
+  direccion: string;
+}
+
 export const UserList = () => {
-  const users = JSON.parse(localStorage.getItem("users") || "[]") as [];
+  const users = JSON.parse(
+    localStorage.getItem("users") || "[]"
+  ) as Array<User>;
 
   return (
     <Table className="w-full">
