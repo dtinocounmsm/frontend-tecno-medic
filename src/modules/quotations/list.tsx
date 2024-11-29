@@ -8,7 +8,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-export interface User {
+export interface Quotation {
   id: string;
   nro: string;
   fecha: Date;
@@ -17,8 +17,8 @@ export interface User {
   estado: "nueva" | "cerrado" | "cancelado";
 }
 
-export const CotizacionList = () => {
-  const cotizaciones = JSON.parse(
+export const QuotationList = () => {
+  const quotations = JSON.parse(
     localStorage.getItem("cotizaciones") || "[]"
   ) as Array<User>;
 
@@ -35,7 +35,7 @@ export const CotizacionList = () => {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {cotizaciones.map((cot) => (
+        {quotations.map((cot) => (
           <TableRow key={cot.id}>
             <TableCell className="font-medium">{cot.nro}</TableCell>
             <TableCell>{cot.fecha}</TableCell>

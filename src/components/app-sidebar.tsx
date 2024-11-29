@@ -30,33 +30,33 @@ const userOptions = [
 const quotationOptions = [
   {
     title: "Recibir",
-    url: "/proposals/list",
+    url: "/quotations/list",
     icon: Inbox,
   },
   {
     title: "Cotizar",
-    url: "/proposals/registration",
+    url: "/quotations/registration",
     icon: Search,
   },
   {
     title: "Enviar",
-    url: "/proposals/list",
+    url: "/quotations/list",
     icon: ArrowRight,
   },
 ];
 
-const reportesOptions = [
+const reportsOptions = [
   {
     title: "Reportes",
-    url: "/dashboard/reportes",
+    url: "/dashboard/reports",
     icon: ArrowRight,
   },
 ];
 
-const productosOptions = [
+const productsOptions = [
   {
     title: "Productos",
-    url: "/dashboard/reportes",
+    url: "/dashboard/reports",
     icon: ArrowRight,
   },
 ];
@@ -104,7 +104,7 @@ export function AppSidebar() {
           <SidebarGroupLabel>Reportes y análisis</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {reportesOptions.map((item) => (
+              {reportsOptions.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
                     <a href={item.url}>
@@ -121,7 +121,7 @@ export function AppSidebar() {
           <SidebarGroupLabel>Productos</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {productosOptions.map((item) => (
+              {productsOptions.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
                     <a href={item.url}>

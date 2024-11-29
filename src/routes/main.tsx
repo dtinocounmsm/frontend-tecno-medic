@@ -6,7 +6,8 @@ import { ForgotPasswordPage } from "@/pages/forgot-password";
 import { HomePage } from "@/pages/home";
 import { LoginPage } from "@/pages/login";
 import { createBrowserRouter, Navigate } from "react-router-dom";
-import { CotizacionList } from "@/modules/cotizaciones/list";
+import { QuotationList } from "@/modules/quotations/list";
+import { QuotationRegistration } from "@/modules/quotations/registration";
 
 export const router = createBrowserRouter([
   {
@@ -45,7 +46,7 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: "proposals",
+    path: "quotations",
     element: <Layout />,
     children: [
       {
@@ -54,11 +55,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "registration",
-        element: <CotizacionList />,
+        element: <QuotationRegistration />,
       },
       {
         path: "list",
-        element: < CotizacionList />,
+        element: < QuotationList />,
       },
     ],
   },
