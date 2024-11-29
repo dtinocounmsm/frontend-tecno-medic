@@ -29,13 +29,34 @@ const userOptions = [
 
 const quotationOptions = [
   {
+    title: "Recibir",
+    url: "/quotations/list",
+    icon: Inbox,
+  },
+  {
     title: "Cotizar",
-    url: "/dashboard/user-registration",
+    url: "/quotations/registration",
     icon: Search,
   },
   {
     title: "Enviar",
-    url: "/dashboard/user-list",
+    url: "/quotations/list",
+    icon: ArrowRight,
+  },
+];
+
+const reportsOptions = [
+  {
+    title: "Reportes",
+    url: "/dashboard/reports",
+    icon: ArrowRight,
+  },
+];
+
+const productsOptions = [
+  {
+    title: "Productos",
+    url: "/dashboard/reports",
     icon: ArrowRight,
   },
 ];
@@ -67,6 +88,40 @@ export function AppSidebar() {
           <SidebarGroupContent>
             <SidebarMenu>
               {quotationOptions.map((item) => (
+                <SidebarMenuItem key={item.title}>
+                  <SidebarMenuButton asChild>
+                    <a href={item.url}>
+                      <item.icon />
+                      <span>{item.title}</span>
+                    </a>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+        <SidebarGroup>
+          <SidebarGroupLabel>Reportes y análisis</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {reportsOptions.map((item) => (
+                <SidebarMenuItem key={item.title}>
+                  <SidebarMenuButton asChild>
+                    <a href={item.url}>
+                      <item.icon />
+                      <span>{item.title}</span>
+                    </a>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+        <SidebarGroup>
+          <SidebarGroupLabel>Productos</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {productsOptions.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
                     <a href={item.url}>
