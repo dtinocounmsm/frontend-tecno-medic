@@ -17,12 +17,12 @@ import {
 const userOptions = [
   {
     title: "Registro",
-    url: "/dashboard/user-registration",
+    url: "/users/user-registration",
     icon: Home,
   },
   {
     title: "listado",
-    url: "/dashboard/user-list",
+    url: "/users/user-list",
     icon: Inbox,
   },
 ];
@@ -48,7 +48,7 @@ const quotationOptions = [
 const reportsOptions = [
   {
     title: "Reportes",
-    url: "/dashboard/reports",
+    url: "/reports/home",
     icon: ArrowRight,
   },
 ];
@@ -56,7 +56,7 @@ const reportsOptions = [
 const productsOptions = [
   {
     title: "Productos",
-    url: "/dashboard/reports",
+    url: "/products/reports",
     icon: ArrowRight,
   },
 ];

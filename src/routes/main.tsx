@@ -28,39 +28,42 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: "dashboard",
     element: <Layout />,
     children: [
       {
-        index: true,
-        element: <HomePage />,
+        path: 'users',
+        children: [
+          {
+            index: true,
+            element: <HomePage />,
+          },
+          {
+            path: "user-registration",
+            element: <UserRegistration />,
+          },
+          {
+            path: "user-list",
+            element: <UserList />,
+          },
+        ]
       },
       {
-        path: "user-registration",
-        element: <UserRegistration />,
-      },
-      {
-        path: "user-list",
-        element: <UserList />,
-      },
-    ],
-  },
-  {
-    path: "quotations",
-    element: <Layout />,
-    children: [
-      {
-        index: true,
-        element: <HomePage />,
-      },
-      {
-        path: "registration",
-        element: <QuotationRegistration />,
-      },
-      {
-        path: "list",
-        element: < QuotationList />,
-      },
+        path: 'quotations',
+        children: [
+          {
+            index: true,
+            element: <HomePage />,
+          },
+          {
+            path: "registration",
+            element: <QuotationRegistration />,
+          },
+          {
+            path: "list",
+            element: < QuotationList />,
+          },
+        ]
+      }
     ],
   },
   {
