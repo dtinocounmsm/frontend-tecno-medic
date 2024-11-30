@@ -12,7 +12,7 @@ export interface Quotation {
   id: string;
   nro: string;
   fecha: Date;
-  monto: integer;
+  monto: number;
   cliente: string;
   estado: "nueva" | "cerrado" | "cancelado";
 }
@@ -20,7 +20,7 @@ export interface Quotation {
 export const QuotationList = () => {
   const quotations = JSON.parse(
     localStorage.getItem("cotizaciones") || "[]"
-  ) as Array<User>;
+  ) as Array<Quotation>;
 
   return (
     <Table className="w-full">
@@ -38,7 +38,7 @@ export const QuotationList = () => {
         {quotations.map((cot) => (
           <TableRow key={cot.id}>
             <TableCell className="font-medium">{cot.nro}</TableCell>
-            <TableCell>{cot.fecha}</TableCell>
+            <TableCell>{cot.fecha.toString()}</TableCell>
             <TableCell>{cot.monto}</TableCell>
             <TableCell>{cot.cliente}</TableCell>
             <TableCell>{cot.estado}</TableCell>
