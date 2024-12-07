@@ -22,7 +22,7 @@ export function LoginPage() {
     // TODO: Implement login logic
     console.log("Login attempt with:", email, password);
     // On successful login:
-    navigate("/users/user-list");
+    navigate("/users/list");
   };
 
   return (
