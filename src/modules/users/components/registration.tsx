@@ -1,6 +1,5 @@
 "use client";
 
-import { useForm, SubmitHandler } from "react-hook-form";
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 
@@ -28,37 +27,10 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-
-export interface IFormInput {
-  nombres: string;
-  apellidoPaterno: string;
-  apellidoMaterno: string;
-  fechaNacimiento: Date;
-  correo: string;
-  telefonoMovil: string;
-  sexo: "masculino" | "femenino" | "otro";
-  direccion: string;
-}
+import { useRegistrationUtils } from "./registration-utils";
 
 export const UserRegistration = () => {
-  const form = useForm<IFormInput>({
-    defaultValues: {
-      nombres: "",
-      apellidoPaterno: "",
-      apellidoMaterno: "",
-      correo: "",
-      telefonoMovil: "",
-      direccion: "",
-    },
-  });
-
-  const onSubmit: SubmitHandler<IFormInput> = (data) => {
-    console.log(data);
-    const users = JSON.parse(localStorage.getItem("users") || "[]");
-    users.push(data);
-    localStorage.setItem("users", JSON.stringify(users));
-  };
-
+  const { form, onSubmit } = useRegistrationUtils();
   return (
     <div>
       <Form {...form}>
