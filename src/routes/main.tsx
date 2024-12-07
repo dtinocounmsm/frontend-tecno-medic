@@ -31,24 +31,24 @@ export const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
-        path: 'users',
+        path: "users",
         children: [
           {
             index: true,
             element: <HomePage />,
           },
           {
-            path: "user-registration",
+            path: "registration",
             element: <UserRegistration />,
           },
           {
-            path: "user-list",
+            path: "list",
             element: <UserListConn />,
           },
-        ]
+        ],
       },
       {
-        path: 'quotations',
+        path: "quotations",
         children: [
           {
             index: true,
@@ -60,10 +60,10 @@ export const router = createBrowserRouter([
           },
           {
             path: "list",
-            element: < QuotationList />,
+            element: <QuotationList />,
           },
-        ]
-      }
+        ],
+      },
     ],
   },
   {

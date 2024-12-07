@@ -17,12 +17,12 @@ import {
 const userOptions = [
   {
     title: "Registro",
-    url: "/users/user-registration",
+    url: "/users/registration",
     icon: Home,
   },
   {
     title: "listado",
-    url: "/users/user-list",
+    url: "/users/list",
     icon: Inbox,
   },
 ];
@@ -55,8 +55,13 @@ const reportsOptions = [
 
 const productsOptions = [
   {
-    title: "Productos",
-    url: "/products/reports",
+    title: "Lista",
+    url: "/products/list",
+    icon: ArrowRight,
+  },
+  {
+    title: "Registrar",
+    url: "/products/registration",
     icon: ArrowRight,
   },
 ];
