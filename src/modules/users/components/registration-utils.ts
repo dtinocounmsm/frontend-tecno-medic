@@ -7,7 +7,7 @@ export interface IFormInput {
   nombres: string;
   apellidoPaterno: string;
   apellidoMaterno: string;
-  fechaNacimiento: Date;
+  fechaNacimiento: string;
   correo: string;
   telefonoMovil: string;
   sexo: "masculino" | "femenino" | "otro";

@@ -1,4 +1,11 @@
-import { Home, Inbox, Search, ArrowRight } from "lucide-react";
+import {
+  CogIcon,
+  Inbox,
+  Search,
+  ArrowRight,
+  FileSpreadsheet,
+  CirclePlus,
+} from "lucide-react";
 
 import {
   Sidebar,
@@ -13,17 +20,16 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 
-// Menu items.
 const userOptions = [
   {
-    title: "Registro",
-    url: "/users/registration",
-    icon: Home,
+    title: "Lista",
+    url: "/users/list",
+    icon: FileSpreadsheet,
   },
   {
-    title: "listado",
-    url: "/users/list",
-    icon: Inbox,
+    title: "Registrar",
+    url: "/users/registration",
+    icon: CirclePlus,
   },
 ];
 
@@ -45,24 +51,37 @@ const quotationOptions = [
   },
 ];
 
-const reportsOptions = [
-  {
-    title: "Reportes",
-    url: "/reports/home",
-    icon: ArrowRight,
-  },
-];
-
 const productsOptions = [
   {
     title: "Lista",
     url: "/products/list",
-    icon: ArrowRight,
+    icon: FileSpreadsheet,
   },
   {
     title: "Registrar",
     url: "/products/registration",
-    icon: ArrowRight,
+    icon: CirclePlus,
+  },
+];
+
+const customersOptions = [
+  {
+    title: "Lista",
+    url: "/customers/list",
+    icon: FileSpreadsheet,
+  },
+  {
+    title: "Registrar",
+    url: "/customers/registration",
+    icon: CirclePlus,
+  },
+];
+
+const settingsOptions = [
+  {
+    title: "Configuración",
+    url: "/settings/general",
+    icon: CogIcon,
   },
 ];
 
@@ -106,10 +125,10 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
         <SidebarGroup>
-          <SidebarGroupLabel>Reportes y análisis</SidebarGroupLabel>
+          <SidebarGroupLabel>Productos</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {reportsOptions.map((item) => (
+              {productsOptions.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
                     <a href={item.url}>
@@ -123,10 +142,27 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
         <SidebarGroup>
-          <SidebarGroupLabel>Productos</SidebarGroupLabel>
+          <SidebarGroupLabel>Clientes</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {productsOptions.map((item) => (
+              {customersOptions.map((item) => (
+                <SidebarMenuItem key={item.title}>
+                  <SidebarMenuButton asChild>
+                    <a href={item.url}>
+                      <item.icon />
+                      <span>{item.title}</span>
+                    </a>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+        <SidebarGroup>
+          <SidebarGroupLabel>Configuración</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {settingsOptions.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
                     <a href={item.url}>
