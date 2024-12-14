@@ -5,9 +5,11 @@ import { ForgotPasswordPage } from "@/pages/forgot-password";
 import { HomePage } from "@/pages/home";
 import { LoginPage } from "@/pages/login";
 import { createBrowserRouter, Navigate } from "react-router-dom";
-import { QuotationList } from "@/modules/quotations/list";
-import { QuotationRegistration } from "@/modules/quotations/registration";
 import { UserListConn } from "@/modules/users/components/list-connected";
+import { ProductList } from "@/modules/products/components/List/ProductList";
+import { ProductRegistration } from "@/modules/products/components/Registration/ProductRegistration";
+import { CustomerList } from "@/modules/customers/components/List/CustomerList";
+import { CustomerRegistration } from "@/modules/customers/components/Registration/CustomerRegistration";
 
 export const router = createBrowserRouter([
   {
@@ -54,13 +56,39 @@ export const router = createBrowserRouter([
             index: true,
             element: <HomePage />,
           },
+        ],
+      },
+      {
+        path: "products",
+        children: [
+          {
+            index: true,
+            element: <ProductList />,
+          },
           {
             path: "registration",
-            element: <QuotationRegistration />,
+            element: <ProductRegistration />,
           },
           {
             path: "list",
-            element: <QuotationList />,
+            element: <ProductList />,
+          },
+        ],
+      },
+      {
+        path: "customers",
+        children: [
+          {
+            index: true,
+            element: <CustomerList />,
+          },
+          {
+            path: "registration",
+            element: <CustomerRegistration />,
+          },
+          {
+            path: "list",
+            element: <CustomerList />,
           },
         ],
       },
