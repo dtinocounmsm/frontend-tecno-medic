@@ -43,8 +43,8 @@ export function CustomerList() {
         if (!response.ok) {
           throw new Error("Failed to fetch customers");
         }
-        const data = await response.json();
-        setCustomers(data.results);
+        const { data } = await response.json();
+        setCustomers(data ?? []);
       } catch (err) {
         setError("Error fetching customers. Please try again later.");
         console.error("Error fetching customers:", err);
