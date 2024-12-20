@@ -30,8 +30,8 @@ export const useProductListUtils = () => {
       try {
         const endpoint = [API_URL, API_VERSION.v1, "products"].join("/");
         const response = await fetch(endpoint);
-        const data = await response.json();
-        setProducts(data.results);
+        const { data } = await response.json();
+        setProducts(data ?? []);
       } catch (error) {
         console.error("Error fetching products:", error);
       }

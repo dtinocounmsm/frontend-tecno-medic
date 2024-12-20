@@ -10,8 +10,8 @@ export const useUsersUtils = () => {
   const getUsers = async () => {
     const endpoint = [API_URL, API_VERSION.v1, "users"].join("/");
     const response = await fetch(endpoint);
-    const data = await response.json();
-    return data.results || [];
+    const { data } = await response.json();
+    return data || [];
   };
 
   const deleteUser = async (id: number) => {
