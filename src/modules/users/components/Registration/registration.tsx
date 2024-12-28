@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button.tsx";
 import {
   Form,
   FormControl,
@@ -9,17 +9,17 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+} from "@/components/ui/form.tsx";
+import { Input } from "@/components/ui/input.tsx";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "@/components/ui/select.tsx";
 
-import { useRegistrationUtils } from "./registration-utils";
+import { useRegistrationUtils } from "./registration-utils.ts";
 
 export const UserRegistration = () => {
   const { form, onSubmit } = useRegistrationUtils();
@@ -29,12 +29,16 @@ export const UserRegistration = () => {
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <FormField
             control={form.control}
-            name="nombres"
+            name="name"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Nombres</FormLabel>
                 <FormControl>
-                  <Input placeholder="Juan Carlos" {...field} />
+                  <Input
+                    data-testid="firstName"
+                    placeholder="Juan Carlos"
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -49,12 +53,16 @@ export const UserRegistration = () => {
           />
           <FormField
             control={form.control}
-            name="apellidoPaterno"
+            name="firstSurname"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Apellido Paterno</FormLabel>
                 <FormControl>
-                  <Input placeholder="García" {...field} />
+                  <Input
+                    data-testid="firstSurname"
+                    placeholder="García"
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -69,12 +77,16 @@ export const UserRegistration = () => {
           />
           <FormField
             control={form.control}
-            name="apellidoMaterno"
+            name="secondSurname"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Apellido Materno</FormLabel>
                 <FormControl>
-                  <Input placeholder="López" {...field} />
+                  <Input
+                    data-testid="secondSurname"
+                    placeholder="López"
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -89,12 +101,12 @@ export const UserRegistration = () => {
           />
           <FormField
             control={form.control}
-            name="fechaNacimiento"
+            name="birthdate"
             render={({ field }) => (
               <FormItem className="flex flex-col">
                 <FormLabel>Fecha de Nacimiento</FormLabel>
                 <FormControl>
-                  <Input type="date" {...field} />
+                  <Input data-testid="birthdate" type="date" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -103,12 +115,16 @@ export const UserRegistration = () => {
           />
           <FormField
             control={form.control}
-            name="correo"
+            name="email"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Correo Electrónico</FormLabel>
                 <FormControl>
-                  <Input placeholder="juan@ejemplo.com" {...field} />
+                  <Input
+                    data-testid="email"
+                    placeholder="juan@ejemplo.com"
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -123,12 +139,16 @@ export const UserRegistration = () => {
           />
           <FormField
             control={form.control}
-            name="telefonoMovil"
+            name="mobile"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Teléfono Móvil</FormLabel>
                 <FormControl>
-                  <Input placeholder="123456789" {...field} />
+                  <Input
+                    data-testid="mobile"
+                    placeholder="123456789"
+                    {...field}
+                  />
                 </FormControl>
                 <FormDescription>
                   Ingrese un número de 9 dígitos sin espacios ni guiones.
@@ -146,13 +166,14 @@ export const UserRegistration = () => {
           />
           <FormField
             control={form.control}
-            name="sexo"
+            name="gender"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Sexo</FormLabel>
                 <Select
                   onValueChange={field.onChange}
                   defaultValue={field.value}
+                  data-testid="gender"
                 >
                   <FormControl>
                     <SelectTrigger>
@@ -160,9 +181,9 @@ export const UserRegistration = () => {
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <SelectItem value="masculino">Masculino</SelectItem>
-                    <SelectItem value="femenino">Femenino</SelectItem>
-                    <SelectItem value="otro">Otro</SelectItem>
+                    <SelectItem value="M">Masculino</SelectItem>
+                    <SelectItem value="F">Femenino</SelectItem>
+                    <SelectItem value="O">Otro</SelectItem>
                   </SelectContent>
                 </Select>
                 <FormMessage />
@@ -172,12 +193,16 @@ export const UserRegistration = () => {
           />
           <FormField
             control={form.control}
-            name="direccion"
+            name="address"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Dirección</FormLabel>
                 <FormControl>
-                  <Input placeholder="Calle 123, Ciudad, País" {...field} />
+                  <Input
+                    data-testid="address"
+                    placeholder="Calle 123, Ciudad, País"
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -190,7 +215,9 @@ export const UserRegistration = () => {
               },
             }}
           />
-          <Button type="submit">Crear Usuario</Button>
+          <Button type="submit" data-testid="sign-up">
+            Crear Usuario
+          </Button>
         </form>
       </Form>
     </div>

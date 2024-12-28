@@ -1,5 +1,3 @@
-import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -11,22 +9,15 @@ import {
   CardContent,
   CardFooter,
 } from "@/components/ui/card";
+import { useLoginUtils } from "./login.utils";
+import { Link } from "react-router-dom";
 
 export function LoginPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const navigate = useNavigate();
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // TODO: Implement login logic
-    console.log("Login attempt with:", email, password);
-    // On successful login:
-    navigate("/users/list");
-  };
+  const { register, handleSubmit, errors, onSubmit, showErrorMessage } =
+    useLoginUtils();
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
       <Card className="w-[350px]">
         <CardHeader>
           <CardTitle>Iniciar Sesión</CardTitle>
@@ -35,31 +26,39 @@ export function LoginPage() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <div className="grid w-full items-center gap-4">
               <div className="flex flex-col space-y-1.5">
                 <Label htmlFor="email">Correo</Label>
                 <Input
+                  data-testid="email"
                   id="email"
                   type="email"
                   placeholder="name@example.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
+                  {...register("email")}
                 />
+                {errors.email && (
+                  <span className="text-red-600" data-testid="error-email">
+                    {errors.email.message}
+                  </span>
+                )}
               </div>
               <div className="flex flex-col space-y-1.5">
                 <Label htmlFor="password">Contraseña</Label>
                 <Input
+                  data-testid="password"
                   id="password"
                   type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
+                  {...register("password")}
                 />
+                {errors.password && (
+                  <span className="text-red-600" data-testid="error-password">
+                    {errors.password.message}
+                  </span>
+                )}
               </div>
             </div>
-            <Button className="w-full mt-4" type="submit">
+            <Button className="w-full mt-4" type="submit" data-testid="sign-in">
               Ingresar
             </Button>
           </form>
@@ -79,6 +78,15 @@ export function LoginPage() {
           </div> */}
         </CardFooter>
       </Card>
+      {showErrorMessage && (
+        <Label
+          htmlFor="email"
+          className="text-red-600 mt-4"
+          data-testid="error-message"
+        >
+          Usuario o Contraseña incorrectos
+        </Label>
+      )}
     </div>
   );
 }
