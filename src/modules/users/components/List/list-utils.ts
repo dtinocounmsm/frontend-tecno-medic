@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { User } from "../typings/user";
-import { API_URL } from "@/config/envs";
-import { API_VERSION } from "@/modules/shared/constants/api-version";
+import { User } from "../../typings/user.ts";
+import { API_URL } from "@/config/envs.ts";
+import { API_VERSION } from "@/modules/shared/constants/api-version.ts";
 import { toast } from "sonner";
 
 export const useUsersUtils = () => {
@@ -18,7 +18,7 @@ export const useUsersUtils = () => {
     const endpoint = [API_URL, API_VERSION.v1, "users", id].join("/");
     await fetch(endpoint, { method: "DELETE" });
     toast.success("Usuario eliminado correctamente", { position: "top-right" });
-    fetchUsers();
+    await fetchUsers();
   };
 
   const fetchUsers = async () => {

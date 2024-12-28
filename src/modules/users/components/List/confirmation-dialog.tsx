@@ -8,8 +8,8 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/components/ui/alert-dialog"
-import { Button } from "@/components/ui/button"
+} from "@/components/ui/alert-dialog.tsx"
+import { Button } from "@/components/ui/button.tsx"
 import { Trash2Icon } from "lucide-react"
 
 export type ConfirmationDialogProps = {
@@ -22,7 +22,7 @@ export function ConfirmationDialog(props: ConfirmationDialogProps) {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button variant="destructive"><Trash2Icon /></Button>
+        <Button variant="destructive" size="icon" ><Trash2Icon /></Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
