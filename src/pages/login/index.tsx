@@ -34,7 +34,7 @@ export function LoginPage() {
                   data-testid="email"
                   id="email"
                   type="email"
-                  placeholder="name@example.com"
+                  placeholder="Ingresa tu correo"
                   {...register("email")}
                 />
                 {errors.email && (
@@ -49,6 +49,7 @@ export function LoginPage() {
                   data-testid="password"
                   id="password"
                   type="password"
+                  placeholder="Ingresa tu contraseña"
                   {...register("password")}
                 />
                 {errors.password && (
